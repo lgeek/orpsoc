@@ -1783,7 +1783,7 @@ Again, supply and ground leads for the UART drivers on the USB debugger can be s
 
 The Atlys board is from Digilent and contains a Spartan 6 device.
 
-More informatino can be found on the manufacturer's website: @uref{http://www.digilentinc.com/atlys/}
+More information can be found on the manufacturer's website: @uref{http://www.digilentinc.com/atlys/}
 
 Note that this board port is based on the ML501 and structure and use are very similar.
 
