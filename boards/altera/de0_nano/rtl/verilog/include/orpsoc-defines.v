@@ -62,7 +62,7 @@
 `define GPIO0
 //`define ETH0
 //`define SDC_CONTROLLER
-`define VGA0
+//`define VGA0
 // end of included module defines - keep this comment line here, scripts depend on it!!
 
 `ifdef SPI0
