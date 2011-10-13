@@ -129,6 +129,7 @@ work: modelsim_dut.scr
 .PHONY : $(MODELSIM)
 ifeq ($(FPGA_VENDOR), actel)
 $(MODELSIM): modelsim_bench.scr $(TEST_DEFINES_VLG) $(BACKEND_LIB) $(VPI_LIBS) work
+	$(Q)mkdir -p $(RTL_SIM_RESULTS_DIR)
 	$(Q)echo; echo "\t### Compiling testbench ###"; echo
 	$(Q)vlog $(QUIET) -nologo -incr $(BENCH_TOP_FILE) -f $<
 	$(Q)$(MGC_VOPT_EXE) $(QUIET) $(RTL_TESTBENCH_TOP_NAME) $(VOPT_ARGS) -L $(BACKEND_LIB) -o tb
@@ -138,6 +139,7 @@ endif
 
 ifeq ($(FPGA_VENDOR), xilinx)
 $(MODELSIM): modelsim_bench.scr $(TEST_DEFINES_VLG) $(VPI_LIBS) work
+	$(Q)mkdir -p $(RTL_SIM_RESULTS_DIR)
 	$(Q)echo; echo "\t### Compiling Xilinx support libs, user design & testbench ###"; echo
 ifeq ($(DO_XILINX_COMPXLIB), 1)
 	$(Q)$(TECHNOLOGY_BACKEND_BIN_DIR)/compxlib $(XLIB_ARGS) 
@@ -150,6 +152,7 @@ endif
 
 ifeq ($(FPGA_VENDOR), altera)
 $(MODELSIM): modelsim_bench.scr $(TEST_DEFINES_VLG) $(BACKEND_LIB) $(VPI_LIBS) work
+	$(Q)mkdir -p $(RTL_SIM_RESULTS_DIR)
 	$(Q)echo; echo "\t### Compiling testbench ###"; echo
 	$(Q)vlog $(QUIET) -nologo -incr $(BENCH_TOP_FILE) -f $<
 	$(Q)$(MGC_VOPT_EXE) $(QUIET) $(RTL_TESTBENCH_TOP_NAME) $(VOPT_ARGS) -L $(BACKEND_LIB) -o tb
